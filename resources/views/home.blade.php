@@ -161,7 +161,7 @@
                     <div class="p-6">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                                <img src="/api/placeholder/48/48" alt="Amazon logo" class="w-8 h-8">
+                                <img src="https://logo.clearbit.com/stripe.com" alt="Amazon logo" class="w-8 h-8">
                             </div>
                             <div>
                                 <h3 class="font-semibold text-lg">Software Engineer</h3>
@@ -194,4 +194,19 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script>
+        async function getData() {
+            const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+            const data = await res.data
+
+            console.log(data)
+        }
+        // console.log(axios)
+        $(document).ready(function() {
+            getData()
+        })
+    </script>
 @endsection
