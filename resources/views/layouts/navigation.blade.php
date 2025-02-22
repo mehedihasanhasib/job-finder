@@ -7,8 +7,8 @@
                 </div>
                 <div class="hidden md:block ml-10">
                     <div class="flex items-baseline space-x-4">
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Home</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Jobs</a>
+                        <a href="{{route('home')}}" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Home</a>
+                        <a href="{{route('jobs')}}" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Jobs</a>
                         <a href="#" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Post a Job</a>
                         <a href="#" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Pricing</a>
                         <a href="#" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">About</a>
