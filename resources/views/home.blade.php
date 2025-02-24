@@ -195,18 +195,3 @@
         </div>
     </section>
 @endsection
-
-@section('script')
-    <script>
-        async function getData() {
-            const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
-            const data = await res.data
-
-            console.log(data)
-        }
-        // console.log(axios)
-        $(document).ready(function() {
-            getData()
-        })
-    </script>
-@endsection
