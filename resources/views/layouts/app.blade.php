@@ -15,12 +15,16 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @yield('css')
 </head>
 
 <body class="font-sans antialiased bg-gray-50">
+
+    @include('components.loading')
+
     <header>
         @include('layouts.navigation')
     </header>
@@ -35,8 +39,9 @@
         @include('layouts.footer')
     </footer>
 
-    @yield('script')
 
+    <script src="{{asset('js/app.js')}}"></script>
+    @yield('script')
 </body>
 
 </html>
