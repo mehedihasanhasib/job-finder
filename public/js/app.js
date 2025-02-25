@@ -1,8 +1,5 @@
-const loading = $("#loading");
+const loading = document.getElementById("loading");
 
-$(document).ready(function () {
-    loading.hide();
+document.addEventListener("DOMContentLoaded", function () {
+    loading.style.display = "none";
 });
-// window.addEventListener("beforeunload", function () {
-//     loading.show();
-// });
