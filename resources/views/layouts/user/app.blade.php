@@ -18,15 +18,16 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
     @yield('css')
 </head>
 
 <body class="font-sans antialiased bg-gray-50">
 
-    @include('components.loading')
+    @include('components.user.loading')
 
     <header>
-        @include('layouts.navigation')
+        @include('layouts.user.navigation')
     </header>
 
     <!-- Page Content -->
@@ -36,11 +37,11 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-12 pb-8">
-        @include('layouts.footer')
+        @include('layouts.user.footer')
     </footer>
 
 
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('script')
 </body>
 
