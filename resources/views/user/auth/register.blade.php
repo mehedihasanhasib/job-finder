@@ -9,11 +9,11 @@
                         <div class="bg-white rounded-lg shadow-lg border-0">
                             <div class="p-8">
                                 <h2 class="text-center text-2xl font-bold mb-6">Create an Account</h2>
-                                <form id="registrationForm" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                                <form id="registrationForm" action="{{ route('register') }}" method="POST" onsubmit="handleSubmit(event)" enctype="multipart/form-data">
                                     @csrf
 
                                     <!-- Profile Picture Upload and Preview -->
-                                    <div class="mb-6 flex flex-col items-center">
+                                    {{-- <div class="mb-6 flex flex-col items-center">
                                         <div class="w-24 h-24 rounded-full bg-gray-200 overflow-hidden mb-3 flex items-center justify-center" id="profilePreview">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -27,61 +27,57 @@
                                             </button>
                                         </div>
                                         <span class="profile_picture text-red-500 text-sm errors mt-1"></span>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                         <!-- Name Field -->
                                         <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
                                             <div class="relative">
-                                                <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="name" type="text" value="{{ old('name') }}" placeholder="Enter your name" required />
+                                                <x-text-input name="name" placeholder="Enter your name" />
                                             </div>
-                                            <span class="name text-red-500 text-sm errors"></span>
                                         </div>
 
                                         <!-- Email Field -->
                                         <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                                             <div class="relative">
-                                                <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="email" type="email" value="{{ old('email') }}" placeholder="Enter your email" required />
+                                                <x-text-input name="email" placeholder="Enter your email" />
                                             </div>
-                                            <span class="email text-red-500 text-sm errors"></span>
                                         </div>
 
                                         <!-- Date of Birth Field -->
-                                        <div class="mb-4">
+                                        {{-- <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
                                             <div class="relative">
                                                 <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="dob" type="date" value="{{ old('dob') }}" placeholder="Select Date of Birth" required />
                                             </div>
                                             <span class="dob text-red-500 text-sm errors"></span>
-                                        </div>
+                                        </div> --}}
 
                                         <!-- Phone Number Field -->
-                                        <div class="mb-4">
+                                        {{-- <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                                             <div class="relative">
                                                 <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="phone" type="tel" value="{{ old('phone') }}" placeholder="Enter your phone number" required />
                                             </div>
                                             <span class="phone text-red-500 text-sm errors"></span>
-                                        </div>
+                                        </div> --}}
 
                                         <!-- Password Field -->
                                         <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                                             <div class="relative">
-                                                <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="password" type="password" placeholder="Password" required />
+                                                <x-text-input type="password" name="password" placeholder="Password" />
                                             </div>
-                                            <span class="password text-red-500 text-sm errors"></span>
                                         </div>
 
                                         <!-- Confirm Password Field -->
                                         <div class="mb-4">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
                                             <div class="relative">
-                                                <input class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition" name="password_confirmation" type="password" placeholder="Confirm Password" required />
+                                                <x-text-input type="password" name="password_confirmation" placeholder="Confirm Password" />
                                             </div>
-                                            <span class="password_confirmation text-red-500 text-sm errors"></span>
                                         </div>
                                     </div>
 
@@ -107,26 +103,31 @@
 
 @section('script')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const profileInput = document.getElementById('profilePictureInput');
-            const previewContainer = document.getElementById('profilePreview');
+        // function handleSubmit(event) {
+        //     event.preventDefault(); // Prevent form submission
+        //     console.log("Form submitted!", event);
+        // }
 
-            profileInput.addEventListener('change', function() {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const profileInput = document.getElementById('profilePictureInput');
+        //     const previewContainer = document.getElementById('profilePreview');
 
-                    reader.onload = function(event) {
-                        previewContainer.innerHTML = '';
-                        const img = document.createElement('img');
-                        img.src = event.target.result;
-                        img.classList.add('w-full', 'h-full', 'object-cover');
-                        previewContainer.appendChild(img);
-                    }
+        //     profileInput.addEventListener('change', function() {
+        //         const file = this.files[0];
+        //         if (file) {
+        //             const reader = new FileReader();
 
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
+        //             reader.onload = function(event) {
+        //                 previewContainer.innerHTML = '';
+        //                 const img = document.createElement('img');
+        //                 img.src = event.target.result;
+        //                 img.classList.add('w-full', 'h-full', 'object-cover');
+        //                 previewContainer.appendChild(img);
+        //             }
+
+        //             reader.readAsDataURL(file);
+        //         }
+        //     });
+        // });
     </script>
 @endsection

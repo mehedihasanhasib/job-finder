@@ -38,6 +38,8 @@
 
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/submit.js') }}"></script>
+
     @yield('script')
 </body>
 
