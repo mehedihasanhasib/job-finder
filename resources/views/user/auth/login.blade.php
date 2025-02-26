@@ -6,24 +6,21 @@
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="py-6 px-8">
                     <div class="text-center mb-6">
-                        <h1 class="text-2xl font-bold text-gray-900">Log In to JobFinder</h1>
-                        <p class="mt-2 text-sm text-gray-600">Enter your credentials to access your account</p>
+                        <h1 class="text-2xl font-bold text-gray-900">Sign In</h1>
+                        {{-- <p class="mt-2 text-sm text-gray-600">Enter your credentials to access your account</p> --}}
                     </div>
 
                     <form class="space-y-6">
                         <!-- Email Field -->
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="your@email.com" required>
+                            <x-label for="email">Email</x-label>
+                            <x-input type="email" id="email" name="email" placeholder="your@email.com" :required="true" />
                         </div>
 
                         <!-- Password Field -->
                         <div>
-                            <div class="flex justify-between items-center mb-1">
-                                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                                <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-                            </div>
-                            <input type="password" id="password" name="password" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="••••••••" required>
+                            <x-label for="password">Password</x-label>
+                            <x-input type="password" id="password" name="password" placeholder="••••••••" :required="true" />
                         </div>
 
                         <!-- Remember Me -->
@@ -35,9 +32,9 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="w-full bg-indigo-600 text-white font-medium py-3 px-4 rounded-md hover:bg-indigo-700 transition duration-150">
-                            Log In
-                        </button>
+                        <x-button type="submit">
+                            Sign In
+                        </x-button>
                     </form>
 
                     <!-- Separator -->

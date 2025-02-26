@@ -10,9 +10,10 @@
 
     <!-- Font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
     <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
     @yield('css')
@@ -20,7 +21,7 @@
 
 <body class="font-sans antialiased bg-gray-50">
 
-    @include('components.user.loading')
+    @include('components.loading')
 
     <header>
         @include('layouts.user.navigation')
