@@ -61,9 +61,12 @@ class RegisteredUserController extends Controller
 
             Auth::login($user);
 
-            return json_response(success: true, message: "Registration Successful", status: 201);
+            return to_route('profile.edit');
         } catch (\Throwable $th) {
-            return json_response(success: false, message: "Registration Failed!", status: 500, errors: $th->getMessage());
+
+            return back()->with('error', 'Server Error! Try Again');
+
+            // return json_response(success: false, message: "Registration Failed!", status: 500, errors: $th->getMessage());
         }
     }
 }
