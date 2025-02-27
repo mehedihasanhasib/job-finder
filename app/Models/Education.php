@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WorkExperience extends Model
+class Education extends Model
 {
-    protected $table = 'work_experience';
+    protected $table = 'educations';
     protected $guarded = [];
 
     public function user()

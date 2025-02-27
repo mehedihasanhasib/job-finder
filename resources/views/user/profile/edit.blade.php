@@ -11,7 +11,8 @@
                     {{-- <div class="bg-indigo-100 h-20 relative"></div> --}}
                     <div class="px-6 py-5 text-center">
                         <div class="mb-4">
-                            <img src="https://i.pravatar.cc/40?img=2" alt="Profile photo" class="w-20 h-20 rounded-full border-2 border-white object-cover mx-auto shadow">
+                            <img src="https://i.pravatar.cc/40?img=2" alt="Profile photo"
+                                class="w-20 h-20 rounded-full border-2 border-white object-cover mx-auto shadow">
                         </div>
                         <h1 class="text-xl font-bold">John Doe</h1>
                         <p class="text-indigo-600 text-sm">Senior Frontend Developer</p>
@@ -59,7 +60,7 @@
             </div>
 
             <!-- Main Content -->
-            <div class="w-full md:w-2/3 space-y-6">
+            <div x-data="{ showModal: false }" class="w-full md:w-2/3 space-y-6">
                 <!-- About Me -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-4">
@@ -68,33 +69,29 @@
                             <i class="fas fa-edit"></i>
                         </button>
                     </div>
-                    <p class="text-gray-700">Passionate frontend developer with 5+ years of experience building responsive and user-friendly web applications. Specialized in modern JavaScript frameworks and performance optimization.</p>
+                    <p class="text-gray-700">Passionate frontend developer with 5+ years of experience building responsive
+                        and user-friendly web applications. Specialized in modern JavaScript frameworks and performance
+                        optimization.</p>
                 </div>
 
                 <!-- Work Experience -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Work Experience</h2>
-                        <button class="flex items-center text-indigo-600 hover:text-indigo-800">
+                        <button hx-get="{{ route('profile.add.work.exp') }}" hx-trigger="click" hx-target="#modal-body"
+                            hx-swap="innerHTML" x-on:click="showModal = !showModal"
+                            class="flex items-center text-indigo-600 hover:text-indigo-800">
                             <i class="fas fa-plus mr-2"></i>Add Experience
                         </button>
                     </div>
-                    <div class="space-y-6">
-                        <div class="relative pl-8 pb-6 border-b last:border-0">
-                            <div class="absolute left-0 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
-                            <div class="flex justify-between">
-                                <div>
-                                    <h3 class="font-semibold text-lg">Senior Frontend Developer</h3>
-                                    <p class="text-indigo-600">Tech Corp Inc.</p>
-                                    <p class="text-gray-600 text-sm">Jan 2020 - Present</p>
-                                    <p class="mt-2 text-gray-700">Led frontend development for multiple high-impact projects, improving site performance by 40%.</p>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button class="text-gray-400 hover:text-indigo-600"><i class="fas fa-edit"></i></button>
-                                    <button class="text-gray-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="">
+                        @if ($work_exps->count() > 0)
+                            @foreach ($work_exps as $work_exp)
+                                <x-user.profile.work-exp :data="$work_exp" />
+                            @endforeach
+                        @else
+                            <p class="text-center">No Data Found</p>
+                        @endif
                     </div>
                 </div>
 
@@ -102,7 +99,9 @@
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Education</h2>
-                        <button class="flex items-center text-indigo-600 hover:text-indigo-800">
+                        <button hx-get="{{ route('profile.add.education') }}" hx-trigger="click" hx-target="#modal-body"
+                            hx-swap="innerHTML" x-on:click="showModal = !showModal"
+                            class="flex items-center text-indigo-600 hover:text-indigo-800">
                             <i class="fas fa-plus mr-2"></i>Add Education
                         </button>
                     </div>
@@ -163,17 +162,25 @@
                                 <div>
                                     <h3 class="font-semibold">E-commerce Platform Redesign</h3>
                                     <p class="text-gray-600 text-sm">2022</p>
-                                    <p class="mt-2 text-gray-700">Led the frontend development of a complete e-commerce platform redesign.</p>
+                                    <p class="mt-2 text-gray-700">Led the frontend development of a complete e-commerce
+                                        platform redesign.</p>
                                 </div>
                                 <div class="flex space-x-2">
-                                    <button class="text-gray-400 hover:text-indigo-600"><i class="fas fa-edit"></i></button>
+                                    <button class="text-gray-400 hover:text-indigo-600"><i
+                                            class="fas fa-edit"></i></button>
                                     <button class="text-gray-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <x-user.profile.modal />
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/htmx.min.js') }}"></script>
 @endsection

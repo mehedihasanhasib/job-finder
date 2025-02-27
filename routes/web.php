@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\EducationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\WorkExperienceController;
 
 Route::get('/', function () {
     return view('user.home');
@@ -16,9 +18,21 @@ Route::get('jobs', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::group(['prefix' => "/profile", 'as' => 'profile.'], function () {
+        Route::controller(ProfileController::class)->group(function () {
+            Route::get('/', 'edit')->name('edit');
+            Route::patch('/', 'update')->name('update');
+            Route::delete('/', 'destroy')->name('destroy');
+        });
+
+        Route::controller(WorkExperienceController::class)->group(function () {
+            Route::get('/add/exp', 'create')->name('add.work.exp');
+        });
+
+        Route::controller(EducationController::class)->group(function () {
+            Route::get('/add/education', 'create')->name('add.education');
+        });
+    });
 });
 
 require __DIR__ . '/auth.php';
