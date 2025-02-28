@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('company_location');
             $table->string('designation');
             $table->text('responsibilities');
-            $table->date('from');
-            $table->date('to');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

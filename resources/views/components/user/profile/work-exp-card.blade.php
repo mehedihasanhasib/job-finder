@@ -5,7 +5,7 @@
             <div>
                 <h3 class="font-semibold text-lg">{{ $data->designation ?? '' }}</h3>
                 <p class="text-indigo-600">{{ $data->company }}</p>
-                <p class="text-gray-600 text-sm">{{ $data->from }} - {{ $data->to }}</p>
+                <p class="text-gray-600 text-sm">{{ $data->start_date }} - {{ $data->end_date ?? 'Present' }}</p>
                 <p class="mt-2 text-gray-700">{{ $data->responsibilities }}</p>
             </div>
             <div class="flex space-x-2">

@@ -30,9 +30,7 @@
                     </div>
                 </div>
 
-                <div id="modal-body">
-
-                </div>
+                <div id="form-area"></div>
 
             </div>
         </div>

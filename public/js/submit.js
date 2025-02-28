@@ -1,20 +1,25 @@
 const handleSubmit = async (event, callback = null) => {
     event.preventDefault();
-    loading.style.display = "block";
+    // if (loading) {
+    //     loading.style.display = "block";
+    // }
 
     const url = event.target.getAttribute("action");
     const formData = new FormData(event.target);
 
     try {
         const response = await axios.post(url, formData);
-        console.log(response);
+        if (response.data.success) {
+            if (callback) {
+                callback(response.data);
+            }
+        }
+        console.log(response)
     } catch (error) {
         const err = await error;
         if (err.status === 422) {
             const validationErrors = err.response.data.errors;
             const allElement = document.querySelectorAll(".validationErrors");
-
-            console.log(validationErrors);
 
             allElement.forEach((element) => {
                 element.innerText = "";
@@ -34,6 +39,8 @@ const handleSubmit = async (event, callback = null) => {
             console.log(errors);
         }
     } finally {
-        loading.style.display = "none";
+        // if (loading) {
+        //     loading.style.display = "none";
+        // }
     }
 };

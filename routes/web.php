@@ -27,10 +27,12 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(WorkExperienceController::class)->group(function () {
             Route::get('/add/exp', 'create')->name('add.work.exp');
+            Route::post('/add/exp/store', 'store')->name('add.work.exp.store');
         });
 
         Route::controller(EducationController::class)->group(function () {
             Route::get('/add/education', 'create')->name('add.education');
+            Route::post('/add/education/store', 'store')->name('add.education.store');
         });
     });
 });

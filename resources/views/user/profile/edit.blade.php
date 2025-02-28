@@ -2,13 +2,11 @@
 
 @section('content')
     <section class="max-w-7xl mx-auto px-4 py-8">
-        <!-- Profile Header -->
         <div class="flex flex-col md:flex-row gap-8">
-            <!-- Left Sidebar - Simplified -->
-            <div class="w-full md:w-1/3">
+            <!-- Sidebar -->
+            <div class="w-full md:w-1/4">
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                     <!-- Profile Header -->
-                    {{-- <div class="bg-indigo-100 h-20 relative"></div> --}}
                     <div class="px-6 py-5 text-center">
                         <div class="mb-4">
                             <img src="https://i.pravatar.cc/40?img=2" alt="Profile photo"
@@ -60,7 +58,7 @@
             </div>
 
             <!-- Main Content -->
-            <div x-data="{ showModal: false }" class="w-full md:w-2/3 space-y-6">
+            <div class="w-full md:w-3/4 space-y-6">
                 <!-- About Me -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-4">
@@ -75,33 +73,35 @@
                 </div>
 
                 <!-- Work Experience -->
-                <div class="bg-white rounded-xl shadow-sm p-6">
+                <div x-data class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Work Experience</h2>
-                        <button hx-get="{{ route('profile.add.work.exp') }}" hx-trigger="click" hx-target="#modal-body"
-                            hx-swap="innerHTML" x-on:click="showModal = !showModal"
+                        <button x-show="!$store.workExpEditMode.on" x-on:click="$store.workExpEditMode.toggle();"
                             class="flex items-center text-indigo-600 hover:text-indigo-800">
                             <i class="fas fa-plus mr-2"></i>Add Experience
                         </button>
                     </div>
-                    <div id="">
+
+                    <div id="workExperienceSection" x-show="!$store.workExpEditMode.on">
                         @if ($work_exps->count() > 0)
                             @foreach ($work_exps as $work_exp)
-                                <x-user.profile.work-exp :data="$work_exp" />
+                                <x-user.profile.work-exp-card :data="$work_exp" />
                             @endforeach
                         @else
                             <p class="text-center">No Data Found</p>
                         @endif
                     </div>
+
+                    <template x-if="$store.workExpEditMode.on">
+                        <x-user.profile.work-exp-form />
+                    </template>
                 </div>
 
                 <!-- Education -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Education</h2>
-                        <button hx-get="{{ route('profile.add.education') }}" hx-trigger="click" hx-target="#modal-body"
-                            hx-swap="innerHTML" x-on:click="showModal = !showModal"
-                            class="flex items-center text-indigo-600 hover:text-indigo-800">
+                        <button class="flex items-center text-indigo-600 hover:text-indigo-800">
                             <i class="fas fa-plus mr-2"></i>Add Education
                         </button>
                     </div>
@@ -174,13 +174,26 @@
                         </div>
                     </div>
                 </div>
-
-                <x-user.profile.modal />
             </div>
         </div>
     </section>
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/htmx.min.js') }}"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('workExpEditMode', {
+                on: false,
+                toggle() {
+                    this.on = !this.on
+                }
+            })
+        })
+
+        function appendWorkExperience(res = null) {
+            console.log(res)
+            document.querySelector("#workExperienceSection").innerHTML += res.view
+            Alpine.store('workExpEditMode').toggle();
+        }
+    </script>
 @endsection
