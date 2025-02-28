@@ -59,16 +59,20 @@ class WorkExperienceController extends Controller
             'current_job.accepted' => 'Current job value must be \'on\' or null'
         ]);
 
-        if ($request->boolean('current_job')) {
-            $validated_data['end_date'] = null;
-            Arr::forget($validated_data, 'current_job');
+        try {
+            if ($request->boolean('current_job')) {
+                $validated_data['end_date'] = null;
+                Arr::forget($validated_data, 'current_job');
+            }
+
+            $validated_data['user_id'] = Auth::user()->id;
+
+            $work_exp = WorkExperience::create($validated_data);
+
+            return json_response(success: true, message: "Work Experience Added", view: view('components.user.profile.work-exp-card', ['data' => $work_exp])->render(), status: 201);
+        } catch (\Throwable $th) {
+            return json_response(success: false, message: "Work Experience Add Failed! Try Again", errors: $th->getMessage(), status: 500);
         }
-
-        $validated_data['user_id'] = Auth::user()->id;
-
-        $work_exp = WorkExperience::create($validated_data);
-
-        return json_response(success: true, message: "Work Experience Added", view: view('components.user.profile.work-exp-card', ['data'=> $work_exp])->render(), status:201);
     }
 
     /**

@@ -13,8 +13,10 @@ const handleSubmit = async (event, callback = null) => {
             if (callback) {
                 callback(response.data);
             }
+        } else {
+            alert(response.data.message);
+            console.log(response);
         }
-        console.log(response)
     } catch (error) {
         const err = await error;
         if (err.status === 422) {
@@ -35,7 +37,7 @@ const handleSubmit = async (event, callback = null) => {
             });
         } else if (err.status === 500) {
             const errors = err.response.data;
-
+            alert(errors.message);
             console.log(errors);
         }
     } finally {
