@@ -19,9 +19,11 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         $work_exps = User::with('work_exp')->find(Auth::user()->id)->work_exp;
+        $educations = User::with('education')->find(Auth::user()->id)->education;
 
         return view('user.profile.edit', [
-            'work_exps' => $work_exps
+            'work_exps' => $work_exps,
+            'educations' => $educations
         ]);
     }
 

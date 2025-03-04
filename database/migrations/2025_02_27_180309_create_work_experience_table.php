@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('company_location');
             $table->string('designation');
-            $table->text('responsibilities');
+            $table->text('responsibilities', 1000)->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->timestamps();

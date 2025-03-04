@@ -76,9 +76,12 @@
                 <div x-data class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Work Experience</h2>
-                        <button x-show="!$store.workExpEditMode.on" x-on:click="$store.workExpEditMode.toggle();"
-                            class="flex items-center text-indigo-600 hover:text-indigo-800">
-                            <i class="fas fa-plus mr-2"></i>Add Experience
+                        <button x-on:click="$store.workExpEditMode.toggle()"
+                            :class="['flex', 'items-center', !$store.workExpEditMode.on ? 'text-indigo-600' : 'text-red-600', !$store
+                                .workExpEditMode.on ? 'hover:text-indigo-800' : 'hover:text-red-800'
+                            ]">
+                            <i x-show="!$store.workExpEditMode.on" class="fas fa-plus mr-2"></i><span
+                                x-text="!$store.workExpEditMode.on ? 'Add Work Experience' : 'Close'"></span>
                         </button>
                     </div>
 
@@ -98,29 +101,32 @@
                 </div>
 
                 <!-- Education -->
-                <div class="bg-white rounded-xl shadow-sm p-6">
+                <div x-data class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-semibold">Education</h2>
-                        <button class="flex items-center text-indigo-600 hover:text-indigo-800">
-                            <i class="fas fa-plus mr-2"></i>Add Education
+                        <button x-on:click="$store.education.toggle()"
+                            :class="['flex', 'items-center', !$store.education.on ? 'text-indigo-600' : 'text-red-600', !$store
+                                .education.on ? 'hover:text-indigo-800' : 'hover:text-red-800'
+                            ]">
+                            <i x-show="!$store.education.on" class="fas fa-plus mr-2"></i><span
+                                x-text="!$store.education.on ? 'Add Education' : 'Close'"></span>
                         </button>
                     </div>
-                    <div class="space-y-6">
-                        <div class="relative pl-8 pb-6 border-b last:border-0">
-                            <div class="absolute left-0 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
-                            <div class="flex justify-between">
-                                <div>
-                                    <h3 class="font-semibold text-lg">Bachelor of Science in Computer Science</h3>
-                                    <p class="text-indigo-600">University of Technology</p>
-                                    <p class="text-gray-600 text-sm">2015 - 2019</p>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button class="text-gray-400 hover:text-indigo-600"><i class="fas fa-edit"></i></button>
-                                    <button class="text-gray-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
+
+
+                    <div id="educatinSection" x-show="!$store.education.on">
+                        @if ($educations->count() > 0)
+                            @foreach ($educations as $education)
+                                <x-user.profile.education-card :data="$education" />
+                            @endforeach
+                        @else
+                            <p class="text-center">No Data Found</p>
+                        @endif
                     </div>
+
+                    <template x-if="$store.education.on">
+                        <x-user.profile.education-form />
+                    </template>
                 </div>
 
                 <!-- Certifications -->
@@ -166,8 +172,7 @@
                                         platform redesign.</p>
                                 </div>
                                 <div class="flex space-x-2">
-                                    <button class="text-gray-400 hover:text-indigo-600"><i
-                                            class="fas fa-edit"></i></button>
+                                    <button class="text-gray-400 hover:text-indigo-600"><i class="fas fa-edit"></i></button>
                                     <button class="text-gray-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
                                 </div>
                             </div>
@@ -182,7 +187,16 @@
 @section('script')
     <script>
         document.addEventListener('alpine:init', () => {
+            // Work Experience
             Alpine.store('workExpEditMode', {
+                on: false,
+                toggle() {
+                    this.on = !this.on
+                }
+            })
+
+            // Education
+            Alpine.store('education', {
                 on: false,
                 toggle() {
                     this.on = !this.on
@@ -191,9 +205,13 @@
         })
 
         function appendWorkExperience(res = null) {
-            console.log(res)
             document.querySelector("#workExperienceSection").innerHTML += res.view
             Alpine.store('workExpEditMode').toggle();
+        }
+
+        function appendEducation(res = null){
+            document.querySelector("#educatinSection").innerHTML += res.view
+            Alpine.store('education').toggle();
         }
     </script>
 @endsection
