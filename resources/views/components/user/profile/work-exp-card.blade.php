@@ -1,6 +1,6 @@
-<div class="space-y-6">
-    <div class="relative mb-6 pl-8">
-        <div class="absolute left-0 top-2 w-3 h-3 bg-indigo-600 rounded-full"></div>
+<div class="space-y-6 border rounded-lg p-4">
+    <div class="relative">
+        {{-- <div class="absolute left-0 top-2 w-3 h-3 bg-indigo-600 rounded-full"></div> --}}
         <div class="flex justify-between">
             <div>
                 <h3 class="font-semibold text-lg">{{ $data->designation ?? '' }}</h3>

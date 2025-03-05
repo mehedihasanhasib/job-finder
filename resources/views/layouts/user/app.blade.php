@@ -11,6 +11,9 @@
     <!-- Font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -40,6 +43,9 @@
 
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script src="{{ asset('js/submit.js') }}"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 
     @yield('script')
 </body>

@@ -43,6 +43,8 @@
 
     <!-- Modal footer with actions -->
     <div class="flex justify-between gap-4">
-        <x-button type="submit">Save</x-button>
+        <x-button type="submit">
+            Save
+        </x-button>
     </div>
 </form>
