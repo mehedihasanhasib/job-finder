@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\WorkExperienceController;
 
+require __DIR__ . "/recruiter.php";
+
 Route::get('/', function () {
     return view('user.home');
 })->name('home');
