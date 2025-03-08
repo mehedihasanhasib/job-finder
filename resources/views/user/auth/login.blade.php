@@ -29,7 +29,7 @@
                         <!-- Remember Me -->
                         <div class="flex items-center">
                             <input type="checkbox" id="remember" name="remember"
-                                class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <label for="remember" class="ml-2 block text-sm text-gray-700">
                                 Remember me
                             </label>
@@ -85,7 +85,7 @@
                     <div class="text-center mt-6">
                         <p class="text-sm text-gray-600">
                             Don't have an account?
-                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Sign
+                            <a href="{{ route('register') }}" class="font-medium text-blue-600 hover:text-blue-500">Sign
                                 up</a>
                         </p>
                     </div>

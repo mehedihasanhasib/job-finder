@@ -23,11 +23,11 @@
                 </p>
                 <p class="flex items-center text-gray-600">
                     <i class="fab fa-linkedin mr-3 text-gray-400"></i>
-                    <a href="#" class="text-indigo-600 hover:underline">linkedin.com/in/johndoe</a>
+                    <a href="#" class="text-blue-600 hover:underline">linkedin.com/in/johndoe</a>
                 </p>
                 <p class="flex items-center text-gray-600">
                     <i class="fas fa-globe mr-3 text-gray-400"></i>
-                    <a href="#" class="text-indigo-600 hover:underline">johndoe.dev</a>
+                    <a href="#" class="text-blue-600 hover:underline">johndoe.dev</a>
                 </p>
             </div>
         </div>

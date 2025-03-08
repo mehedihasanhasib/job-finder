@@ -27,10 +27,11 @@ Route::middleware('auth')->group(function () {
             Route::delete('/', 'destroy')->name('destroy');
         });
 
-        Route::controller(WorkExperienceController::class)->group(function () {
-            Route::get('/add/exp', 'create')->name('work.exp');
-            Route::post('/add/exp/store', 'store')->name('work.exp.store');
-        });
+        Route::resource('/work-exp', WorkExperienceController::class);
+        // Route::controller(WorkExperienceController::class)->group(function () {
+        //     Route::get('/add/exp', 'create')->name('work.exp');
+        //     Route::post('/add/exp/store', 'store')->name('work.exp.store');
+        // });
 
         Route::controller(EducationController::class)->group(function () {
             Route::get('/add/education', 'create')->name('education');

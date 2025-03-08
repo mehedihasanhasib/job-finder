@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <a href="{{ route('home') }}">
                     <div class="flex-shrink-0">
-                        <span class="text-xl font-bold text-indigo-600">JobFinder</span>
+                        <span class="text-xl font-bold text-blue-600">JobFinder</span>
                     </div>
                 </a>
                 <!-- Desktop Navigation -->
@@ -22,9 +22,9 @@
                 <div class="flex items-center">
                     @guest
                         <a href="{{ route('login') }}"
-                            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Sign In</a>
+                            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Sign In</a>
                         <a href="{{ route('register') }}"
-                            class="ml-4 px-5 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition duration-150">Sign
+                            class="ml-4 px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-150">Sign
                             Up</a>
                     @else
                         <div class="relative" x-data="{ open: false }">
@@ -65,7 +65,7 @@
 
             <!-- Mobile menu button -->
             <div class="md:hidden" x-data="{ open: false }">
-                <button @click="open = !open" class="text-gray-500 hover:text-indigo-600 focus:outline-none">
+                <button @click="open = !open" class="text-gray-500 hover:text-blue-600 focus:outline-none">
                     <svg x-show="!open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -86,21 +86,21 @@
                     class="absolute top-16 inset-x-0 z-[9999] bg-white shadow-md p-2" @click.away="open = false">
                     <div class="pt-2 pb-3 space-y-1">
                         <a href="{{ route('home') }}"
-                            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Home</a>
+                            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
                         <a href="{{ route('jobs') }}"
-                            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Jobs</a>
+                            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Jobs</a>
                     </div>
 
                     @guest
                         <div class="pt-4 pb-3 border-t border-gray-200">
                             <div class="flex items-center px-3">
                                 <a href="{{ route('login') }}"
-                                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Sign
+                                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Sign
                                     In</a>
                             </div>
                             <div class="mt-3 flex items-center px-3">
                                 <a href="{{ route('register') }}"
-                                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 text-center hover:bg-indigo-700">Sign
+                                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 text-center hover:bg-blue-700">Sign
                                     Up</a>
                             </div>
                         </div>
@@ -117,13 +117,13 @@
                             </div>
                             <div class="space-y-1">
                                 <a href="{{ route('profile.edit') }}"
-                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Profile</a>
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Profile</a>
                                 <a href="#"
-                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Settings</a>
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Settings</a>
                                 <form method="POST" action="">
                                     @csrf
                                     <button type="submit"
-                                        class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">
+                                        class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                                         Logout
                                     </button>
                                 </form>

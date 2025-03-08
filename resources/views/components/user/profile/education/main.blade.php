@@ -2,8 +2,8 @@
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-semibold">Education</h2>
         <button x-on:click="$store.education.toggle()"
-            :class="['flex', 'items-center', !$store.education.on ? 'text-indigo-600' : 'text-red-600', !$store
-                .education.on ? 'hover:text-indigo-800' : 'hover:text-red-800'
+            :class="['flex', 'items-center', !$store.education.on ? 'text-blue-600' : 'text-red-600', !$store
+                .education.on ? 'hover:text-blue-800' : 'hover:text-red-800'
             ]">
             <i x-show="!$store.education.on" class="fas fa-plus mr-2"></i><span
                 x-text="!$store.education.on ? 'Add Education' : 'Close'"></span>

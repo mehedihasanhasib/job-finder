@@ -3,9 +3,9 @@
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-semibold">Work Experience</h2>
         <button x-on:click="$store.workExpEditMode.toggle()"
-            :class="['flex', 'items-center', !$store.workExpEditMode.on ? 'text-indigo-600' : 'text-red-600', !
+            :class="['flex', 'items-center', !$store.workExpEditMode.on ? 'text-blue-600' : 'text-red-600', !
                 $store
-                .workExpEditMode.on ? 'hover:text-indigo-800' : 'hover:text-red-800'
+                .workExpEditMode.on ? 'hover:text-blue-800' : 'hover:text-red-800'
             ]">
             <i x-show="!$store.workExpEditMode.on" class="fas fa-plus mr-2"></i><span
                 x-text="!$store.workExpEditMode.on ? 'Add Work Experience' : 'Close'"></span>

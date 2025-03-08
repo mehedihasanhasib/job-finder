@@ -40,6 +40,14 @@
 
     <script src="{{ asset('js/submit.js') }}"></script>
 
+    @if (session()->has('success'))
+        @include('components.toast-success')
+    @endif
+
+    @if (session()->has('error'))
+        @include('components.toast-error')
+    @endif
+
     @yield('script')
 </body>
 

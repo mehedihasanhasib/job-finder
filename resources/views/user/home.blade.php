@@ -9,8 +9,8 @@
             </div>
             <div class="mt-8 max-w-2xl mx-auto">
                 <form class="flex flex-col sm:flex-row gap-4">
-                    <input type="text" placeholder="Search for jobs..." class="w-full px-5 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <button type="submit" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-150">Search</button>
+                    <input type="text" placeholder="Search for jobs..." class="w-full px-5 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-150">Search</button>
                 </form>
             </div>
         </div>
@@ -21,20 +21,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <h2 class="text-xl font-semibold mb-6">Popular Categories</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <a href="#" class="bg-white p-4 rounded-lg border hover:border-indigo-300 flex items-center space-x-3">
-                    <i class="fas fa-laptop-code text-indigo-600"></i>
+                <a href="#" class="bg-white p-4 rounded-lg border hover:border-blue-300 flex items-center space-x-3">
+                    <i class="fas fa-laptop-code text-blue-600"></i>
                     <span>Technology (2,341)</span>
                 </a>
-                <a href="#" class="bg-white p-4 rounded-lg border hover:border-indigo-300 flex items-center space-x-3">
-                    <i class="fas fa-chart-line text-indigo-600"></i>
+                <a href="#" class="bg-white p-4 rounded-lg border hover:border-blue-300 flex items-center space-x-3">
+                    <i class="fas fa-chart-line text-blue-600"></i>
                     <span>Finance (1,253)</span>
                 </a>
-                <a href="#" class="bg-white p-4 rounded-lg border hover:border-indigo-300 flex items-center space-x-3">
-                    <i class="fas fa-palette text-indigo-600"></i>
+                <a href="#" class="bg-white p-4 rounded-lg border hover:border-blue-300 flex items-center space-x-3">
+                    <i class="fas fa-palette text-blue-600"></i>
                     <span>Design (892)</span>
                 </a>
-                <a href="#" class="bg-white p-4 rounded-lg border hover:border-indigo-300 flex items-center space-x-3">
-                    <i class="fas fa-bullhorn text-indigo-600"></i>
+                <a href="#" class="bg-white p-4 rounded-lg border hover:border-blue-300 flex items-center space-x-3">
+                    <i class="fas fa-bullhorn text-blue-600"></i>
                     <span>Marketing (1,423)</span>
                 </a>
             </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-lg">Senior Frontend Developer</h3>
-                                <p class="text-indigo-600">Google</p>
+                                <p class="text-blue-600">Google</p>
                             </div>
                         </div>
                         <div class="space-y-2 mb-4">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="border-t pt-4">
-                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-indigo-600 font-medium py-2 rounded transition duration-150">
+                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-blue-600 font-medium py-2 rounded transition duration-150">
                                 View Details
                             </button>
                         </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-lg">Product Manager</h3>
-                                <p class="text-indigo-600">Microsoft</p>
+                                <p class="text-blue-600">Microsoft</p>
                             </div>
                         </div>
                         <div class="space-y-2 mb-4">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="border-t pt-4">
-                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-indigo-600 font-medium py-2 rounded transition duration-150">
+                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-blue-600 font-medium py-2 rounded transition duration-150">
                                 View Details
                             </button>
                         </div>
@@ -123,7 +123,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-lg">UX Designer</h3>
-                                <p class="text-indigo-600">Apple</p>
+                                <p class="text-blue-600">Apple</p>
                             </div>
                         </div>
                         <div class="space-y-2 mb-4">
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="border-t pt-4">
-                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-indigo-600 font-medium py-2 rounded transition duration-150">
+                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-blue-600 font-medium py-2 rounded transition duration-150">
                                 View Details
                             </button>
                         </div>
@@ -165,7 +165,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-lg">Software Engineer</h3>
-                                <p class="text-indigo-600">Amazon</p>
+                                <p class="text-blue-600">Amazon</p>
                             </div>
                         </div>
                         <div class="space-y-2 mb-4">
@@ -183,7 +183,7 @@
                             </div>
                         </div>
                         <div class="border-t pt-4">
-                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-indigo-600 font-medium py-2 rounded transition duration-150">
+                            <button class="w-full bg-gray-50 hover:bg-gray-100 text-blue-600 font-medium py-2 rounded transition duration-150">
                                 View Details
                             </button>
                         </div>
